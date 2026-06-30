@@ -1,0 +1,18 @@
+public class Main {
+    public static void main(String[] args) {
+        DocumentFactory factory;
+        Document doc;
+
+        factory = new WordDocumentFactory();
+        doc = factory.createDocument();
+        doc.open();
+
+        factory = new PdfDocumentFactory();
+        doc = factory.createDocument();
+        doc.open();
+
+        factory = new ExcelDocumentFactory();
+        doc = factory.createDocument();
+        doc.open();
+    }
+}
