@@ -1,0 +1,10 @@
+INSERT INTO stock (st_code, st_date, st_open, st_close, st_volume) VALUES ('FB', '2019-09-05', 188.25, 190.10, 12000000);
+INSERT INTO stock (st_code, st_date, st_open, st_close, st_volume) VALUES ('FB', '2019-09-15', 190.50, 192.30, 14000000);
+INSERT INTO stock (st_code, st_date, st_open, st_close, st_volume) VALUES ('FB', '2019-10-05', 195.00, 196.20, 15000000);
+INSERT INTO stock (st_code, st_date, st_open, st_close, st_volume) VALUES ('GOOG', '2019-09-05', 1230.00, 1260.00, 3000000);
+INSERT INTO stock (st_code, st_date, st_open, st_close, st_volume) VALUES ('GOOG', '2019-09-15', 1240.00, 1245.00, 2000000);
+INSERT INTO stock (st_code, st_date, st_open, st_close, st_volume) VALUES ('GOOG', '2019-09-25', 1260.00, 1280.00, 4000000);
+INSERT INTO stock (st_code, st_date, st_open, st_close, st_volume) VALUES ('NFLX', '2019-09-05', 290.00, 285.00, 8000000);
+INSERT INTO stock (st_code, st_date, st_open, st_close, st_volume) VALUES ('NFLX', '2019-09-15', 285.00, 282.00, 7000000);
+INSERT INTO stock (st_code, st_date, st_open, st_close, st_volume) VALUES ('NFLX', '2019-09-25', 280.00, 278.00, 9000000);
+INSERT INTO stock (st_code, st_date, st_open, st_close, st_volume) VALUES ('NFLX', '2019-09-30', 288.00, 292.00, 6000000);
