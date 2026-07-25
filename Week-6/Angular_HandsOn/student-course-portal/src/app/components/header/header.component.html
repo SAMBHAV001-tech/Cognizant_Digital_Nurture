@@ -1,0 +1,30 @@
+<header class="header">
+  <div class="container header-container">
+    <div class="logo-area">
+      <span class="logo-icon">🎓</span>
+      <div class="logo-text">
+        <span class="brand-name">EduPortal</span>
+        <span class="brand-sub">Student & Course Management</span>
+      </div>
+    </div>
+
+    <nav class="nav">
+      <a routerLink="/students" routerLinkActive="active" class="nav-link">Students</a>
+      <a routerLink="/courses" routerLinkActive="active" class="nav-link">Courses</a>
+      <a routerLink="/register" routerLinkActive="active" class="nav-link">Register Student</a>
+      <a routerLink="/create-course" routerLinkActive="active" class="nav-link">Create Course</a>
+      <a routerLink="/admin" routerLinkActive="active" class="nav-link nav-admin">Admin</a>
+    </nav>
+
+    <div class="header-badges">
+      <div class="badge-item">
+        <span class="lbl">Selected:</span>
+        <span class="val highlight">{{ selectedStudent$ | async }}</span>
+      </div>
+      <div class="badge-item">
+        <span class="lbl">Enrolled:</span>
+        <span class="val count">{{ totalEnrolled$ | async }}</span>
+      </div>
+    </div>
+  </div>
+</header>

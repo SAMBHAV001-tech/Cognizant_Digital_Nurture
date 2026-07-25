@@ -1,0 +1,66 @@
+.course-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.code-badge {
+  background: rgba(129, 140, 248, 0.15);
+  color: #818cf8;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 4px;
+}
+
+.course-title {
+  font-size: 17px;
+  color: #f8fafc;
+  margin-top: 0;
+  margin-bottom: 16px;
+
+}
+
+.card-body {
+  flex: 1;
+}
+
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  margin: 8px 0;
+  font-size: 13px;
+}
+
+.info-label {
+  color: #64748b;
+}
+
+.info-val {
+  color: #cbd5e1;
+}
+
+.fee-val {
+  color: #34d399;
+  font-weight: 700;
+}
+
+.card-footer {
+  margin-top: 18px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.btn-sm {
+  width: 100%;
+  justify-content: center;
+  padding: 8px 14px;
+  font-size: 13px;
+}

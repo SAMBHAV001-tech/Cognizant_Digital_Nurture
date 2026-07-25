@@ -1,0 +1,33 @@
+<div class="container section">
+  <div class="admin-header">
+    <span class="badge badge-active">🛡 Protected Area</span>
+    <h2>Admin Dashboard (AuthGuard Protected)</h2>
+    <p class="subtitle">System overview, metrics, and administration shortcuts</p>
+  </div>
+
+  <div class="metrics-grid">
+    <div class="card metric-card">
+      <span class="metric-icon">👥</span>
+      <div class="metric-info">
+        <span class="metric-val">{{ (students$ | async)?.length }}</span>
+        <span class="metric-lbl">Total Registered Students</span>
+      </div>
+    </div>
+
+    <div class="card metric-card">
+      <span class="metric-icon">📚</span>
+      <div class="metric-info">
+        <span class="metric-val">{{ (courses$ | async)?.length }}</span>
+        <span class="metric-lbl">Active &amp; Upcoming Courses</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="admin-actions">
+    <h3>Quick Management Actions</h3>
+    <div class="actions-row">
+      <a routerLink="/register" class="btn btn-primary">+ Register Student</a>
+      <a routerLink="/create-course" class="btn btn-secondary">+ Create New Course</a>
+    </div>
+  </div>
+</div>

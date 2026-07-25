@@ -1,0 +1,76 @@
+<div class="container section">
+  <div class="form-card card">
+    <h2 class="form-title">Create New Course (Reactive Form)</h2>
+    <p class="form-sub">FormBuilder, Custom Fee Validators, Async Code Verification &amp; FormArray</p>
+
+    <div class="success-banner" *ngIf="submitted">
+      ✅ Course created successfully! Redirecting to list...
+    </div>
+
+    <form [formGroup]="courseForm" (ngSubmit)="onSubmit()" *ngIf="!submitted">
+      <div class="form-grid">
+        <div class="form-group">
+          <label class="form-label">Course Code * (e.g. CS-101)</label>
+          <input type="text" class="form-control" formControlName="code" placeholder="ANG-501" />
+          <div class="error-msg" *ngIf="courseForm.get('code')?.invalid && courseForm.get('code')?.touched">
+            <span *ngIf="courseForm.get('code')?.errors?.['required']">Code is required.</span>
+            <span *ngIf="courseForm.get('code')?.errors?.['pattern']">Format must match uppercase code like ANG-2026.</span>
+            <span *ngIf="courseForm.get('code')?.errors?.['codeTaken']">Course code is already registered.</span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Course Name *</label>
+          <input type="text" class="form-control" formControlName="name" placeholder="Full Stack Web Architecture" />
+          <div class="error-msg" *ngIf="courseForm.get('name')?.invalid && courseForm.get('name')?.touched">
+            <span *ngIf="courseForm.get('name')?.errors?.['required']">Course Name is required.</span>
+            <span *ngIf="courseForm.get('name')?.errors?.['minlength']">At least 5 characters required.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-grid">
+        <div class="form-group">
+          <label class="form-label">Instructor Name *</label>
+          <input type="text" class="form-control" formControlName="instructor" placeholder="Dr. Anish Sharma" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Fee (₹1,000 - ₹50,000) *</label>
+          <input type="number" class="form-control" formControlName="fee" />
+          <div class="error-msg" *ngIf="courseForm.get('fee')?.invalid && courseForm.get('fee')?.touched">
+            <span *ngIf="courseForm.get('fee')?.errors?.['feeRange']">Fee must be between ₹1,000 and ₹50,000.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-grid">
+        <div class="form-group">
+          <label class="form-label">Credits (1-6)</label>
+          <input type="number" class="form-control" formControlName="credits" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Start Date *</label>
+          <input type="date" class="form-control" formControlName="startDate" />
+        </div>
+      </div>
+
+      <div class="form-group" formArrayName="prerequisites">
+        <div class="array-header">
+          <label class="form-label">Prerequisites (FormArray)</label>
+          <button type="button" class="btn btn-secondary btn-sm" (click)="addPrerequisite()">+ Add Subject</button>
+        </div>
+
+        <div *ngFor="let item of prerequisitesArray.controls; let i = index" class="array-row">
+          <input type="text" class="form-control" [formControlName]="i" placeholder="Prerequisite subject {{ i + 1 }}" />
+          <button type="button" class="btn btn-danger btn-sm" (click)="removePrerequisite(i)">✕</button>
+        </div>
+      </div>
+
+      <button type="submit" class="btn btn-primary" [disabled]="courseForm.invalid">
+        Create Course
+      </button>
+    </form>
+  </div>
+</div>

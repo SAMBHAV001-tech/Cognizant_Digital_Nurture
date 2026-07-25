@@ -1,0 +1,81 @@
+<div class="container section">
+  <div class="form-card card">
+    <h2 class="form-title">Student Registration (Template-Driven Form)</h2>
+    <p class="form-sub">Enter student details below to register into the portal</p>
+
+    <div class="success-banner" *ngIf="submitted">
+      ✅ Student registered successfully! Redirecting to directory...
+    </div>
+
+    <form #registerForm="ngForm" (ngSubmit)="onSubmit(registerForm)" novalidate *ngIf="!submitted">
+      <div class="form-group">
+        <label class="form-label" for="name">Full Name *</label>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          class="form-control"
+          [(ngModel)]="studentModel.name"
+          #nameCtrl="ngModel"
+          required
+          minlength="3"
+        />
+        <div class="error-msg" *ngIf="nameCtrl.invalid && (nameCtrl.dirty || nameCtrl.touched)">
+          <span *ngIf="nameCtrl.errors?.['required']">Full Name is required.</span>
+          <span *ngIf="nameCtrl.errors?.['minlength']">Name must be at least 3 characters.</span>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="email">Email Address *</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          class="form-control"
+          [(ngModel)]="studentModel.email"
+          #emailCtrl="ngModel"
+          required
+          email
+        />
+        <div class="error-msg" *ngIf="emailCtrl.invalid && (emailCtrl.dirty || emailCtrl.touched)">
+          <span *ngIf="emailCtrl.errors?.['required']">Email is required.</span>
+          <span *ngIf="emailCtrl.errors?.['email']">Please enter a valid email address.</span>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="department">Department</label>
+        <select
+          id="department"
+          name="department"
+          class="form-control"
+          [(ngModel)]="studentModel.department"
+        >
+          <option value="Computer Science">Computer Science</option>
+          <option value="Information Technology">Information Technology</option>
+          <option value="Electronics">Electronics</option>
+          <option value="Data Science">Data Science</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="gpa">Initial GPA (0.0 - 4.0)</label>
+        <input
+          type="number"
+          id="gpa"
+          name="gpa"
+          step="0.1"
+          min="0"
+          max="4"
+          class="form-control"
+          [(ngModel)]="studentModel.gpa"
+        />
+      </div>
+
+      <button type="submit" class="btn btn-primary" [disabled]="registerForm.invalid">
+        Register Student
+      </button>
+    </form>
+  </div>
+</div>

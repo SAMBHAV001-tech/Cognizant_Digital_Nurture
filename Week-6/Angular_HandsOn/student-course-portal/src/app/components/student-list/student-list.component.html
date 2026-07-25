@@ -1,0 +1,28 @@
+<div class="container section">
+  <div class="section-header">
+    <div>
+      <h2 class="title">Students Directory</h2>
+      <p class="subtitle">Browse registered students and view their academic progress</p>
+    </div>
+    <div class="search-box">
+      <input
+        type="text"
+        class="form-control search-input"
+        placeholder="🔍 Search student by name..."
+        [(ngModel)]="searchText"
+      />
+    </div>
+  </div>
+
+  <div class="selection-banner" *ngIf="selectedStudent">
+    <span>Active Selection: <strong>{{ selectedStudent.name }}</strong> ({{ selectedStudent.department }}) — GPA: {{ selectedStudent.gpa }}</span>
+  </div>
+
+  <div class="grid">
+    <app-student-card
+      *ngFor="let s of (students | searchFilter:searchText:'name')"
+      [student]="s"
+      (selectStudent)="onStudentSelected($event)"
+    ></app-student-card>
+  </div>
+</div>

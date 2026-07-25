@@ -1,0 +1,20 @@
+<div class="container section">
+  <div class="section-header">
+    <div>
+      <h2 class="title">Available Courses</h2>
+      <p class="subtitle">Explore industry-standard certification courses and enroll today</p>
+    </div>
+  </div>
+
+  <div class="enrollment-banner" *ngIf="enrolledCourseName">
+    <span>✅ Successfully enrolled in <strong>{{ enrolledCourseName }}</strong>!</span>
+  </div>
+
+  <div class="grid">
+    <app-course-card
+      *ngFor="let c of courses"
+      [course]="c"
+      (enrollCourse)="onCourseEnrolled($event)"
+    ></app-course-card>
+  </div>
+</div>

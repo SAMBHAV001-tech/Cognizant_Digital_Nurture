@@ -1,0 +1,52 @@
+<div class="container section">
+  <a routerLink="/courses" class="back-link">← Back to Courses</a>
+
+  <div class="card detail-card" *ngIf="course; else notFound">
+    <div class="detail-header">
+      <div>
+        <span class="code-badge">{{ course.code }}</span>
+        <h2 class="detail-title">{{ course.name }}</h2>
+      </div>
+      <span class="badge" [ngClass]="course.status === 'Active' ? 'badge-active' : 'badge-upcoming'">
+        {{ course.status }}
+      </span>
+    </div>
+
+    <div class="detail-grid">
+      <div class="detail-item">
+        <span class="label">Instructor:</span>
+        <span class="val">{{ course.instructor }}</span>
+      </div>
+      <div class="detail-item">
+        <span class="label">Course Fee:</span>
+        <span class="val fee">{{ course.fee | currency:'INR':'symbol':'1.0-0' }}</span>
+      </div>
+      <div class="detail-item">
+        <span class="label">Academic Credits:</span>
+        <span class="val">{{ course.credits }} Credits</span>
+      </div>
+      <div class="detail-item">
+        <span class="label">Start Date:</span>
+        <span class="val">{{ course.startDate | date:'fullDate' }}</span>
+      </div>
+      <div class="detail-item">
+        <span class="label">Duration:</span>
+        <span class="val">{{ course.duration }}</span>
+      </div>
+    </div>
+
+    <div class="prereq-section" *ngIf="course.prerequisites && course.prerequisites.length > 0">
+      <h3>Prerequisites Required:</h3>
+      <ul>
+        <li *ngFor="let p of course.prerequisites">{{ p }}</li>
+      </ul>
+    </div>
+  </div>
+
+  <ng-template #notFound>
+    <div class="card not-found-card">
+      <h2>Course Not Found</h2>
+      <p>The requested course details could not be found.</p>
+    </div>
+  </ng-template>
+</div>

@@ -1,0 +1,33 @@
+<div class="card course-card" appHighlight>
+  <div class="card-header">
+    <span class="code-badge">{{ course.code }}</span>
+    <span class="badge" [ngClass]="course.status === 'Active' ? 'badge-active' : 'badge-upcoming'">
+      {{ course.status }}
+    </span>
+  </div>
+
+  <h3 class="course-title">{{ course.name }}</h3>
+
+  <div class="card-body">
+    <p class="info-row">
+      <span class="info-label">Instructor:</span>
+      <span class="info-val">{{ course.instructor }}</span>
+    </p>
+    <p class="info-row">
+      <span class="info-label">Fee:</span>
+      <span class="info-val fee-val">{{ course.fee | currency:'INR':'symbol':'1.0-0' }}</span>
+    </p>
+    <p class="info-row">
+      <span class="info-label">Start Date:</span>
+      <span class="info-val">{{ course.startDate | date:'mediumDate' }}</span>
+    </p>
+    <p class="info-row">
+      <span class="info-label">Duration:</span>
+      <span class="info-val">{{ course.duration }} ({{ course.credits }} Credits)</span>
+    </p>
+  </div>
+
+  <div class="card-footer">
+    <button class="btn btn-primary btn-sm" (click)="onEnroll()">Enroll Now</button>
+  </div>
+</div>
