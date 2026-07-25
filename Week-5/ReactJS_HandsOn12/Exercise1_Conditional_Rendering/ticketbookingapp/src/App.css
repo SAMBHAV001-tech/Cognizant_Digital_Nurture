@@ -1,0 +1,152 @@
+body {
+  margin: 0;
+  font-family: 'Inter', 'Segoe UI', Roboto, sans-serif;
+  background-color: #0f172a;
+  color: #f8fafc;
+  -webkit-font-smoothing: antialiased;
+}
+
+.App {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 40px;
+  background: rgba(15, 23, 42, 0.95);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  backdrop-filter: blur(12px);
+}
+
+.main-title {
+  font-size: 24px;
+  font-weight: 800;
+  margin: 0;
+  background: linear-gradient(to right, #38bdf8, #818cf8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.app-main {
+  flex: 1;
+  padding: 40px 40px;
+  max-width: 900px;
+  margin: 0 auto;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.btn {
+  padding: 10px 24px;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.btn:hover {
+  opacity: 0.85;
+  transform: translateY(-1px);
+}
+
+.btn-login {
+  background: linear-gradient(135deg, #3b82f6, #6366f1);
+  color: #fff;
+}
+
+.btn-logout {
+  background: rgba(239, 68, 68, 0.15);
+  color: #f87171;
+  border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+.greeting-panel {
+  border-radius: 16px;
+  padding: 32px;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.guest-panel {
+  background: rgba(30, 41, 59, 0.5);
+}
+
+.user-panel {
+  background: rgba(17, 50, 60, 0.5);
+  border-color: rgba(56, 189, 248, 0.15);
+}
+
+.greeting-panel h2 {
+  margin-top: 0;
+  font-size: 26px;
+  font-weight: 700;
+}
+
+.guest-panel h2 { color: #94a3b8; }
+.user-panel h2 { color: #38bdf8; }
+
+.sub {
+  color: #64748b;
+  margin-bottom: 28px;
+  font-size: 15px;
+}
+
+.flight-list h3 {
+  font-size: 15px;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  color: #475569;
+  margin-bottom: 14px;
+}
+
+.flight-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 10px;
+  margin-bottom: 12px;
+  transition: border-color 0.2s ease;
+}
+
+.flight-card:hover {
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+.route {
+  font-weight: 600;
+  font-size: 15px;
+  color: #e2e8f0;
+}
+
+.price {
+  font-weight: 700;
+  color: #34d399;
+  font-size: 15px;
+}
+
+.book-btn {
+  padding: 8px 18px;
+  border: none;
+  border-radius: 7px;
+  background: linear-gradient(135deg, #0ea5e9, #6366f1);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.book-btn:hover {
+  opacity: 0.85;
+}
